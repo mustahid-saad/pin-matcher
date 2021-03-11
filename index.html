@@ -42,7 +42,7 @@
                                 <div id="clear" class="button">C</div>
                             </div>
                             <div>
-                                <button id="submitBtn" type="submit" class="submit-btn">Submit</button>
+                                <button id="submitBtn" value="button" type="submit" class="submit-btn">Submit</button>
                                 <p class="action-left"> <span id="tryRemaining">3</span> try left</p>
                             </div>
                     </div>
@@ -114,12 +114,18 @@
                 match.style.display = "none"  
                 remainingAttempt();
             }
+            document.getElementById('numDisplay').value = '' ;
             
+            //function for try attempt count
             function remainingAttempt(){
                 currentRemaining = document.getElementById("tryRemaining").innerText;
                 currentRemainingNum = parseInt(currentRemaining);
                 newRemaining = currentRemainingNum - 1;
                 document.getElementById("tryRemaining").innerText = newRemaining;
+                if(newRemaining == 0){
+                    
+                    document.getElementById('submitBtn').disabled = true;
+                }
             }
             
 
